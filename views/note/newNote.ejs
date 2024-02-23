@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate2')%>
+
+    <div class="container mt-5 pt-5">
+        <div class="row note-input">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Add Note</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-12">
+                <h2>Add Notes</h2>
+            </div>
+            <form action="/newNote" method="POST" class="form-data">
+                <div class="col-12">
+                    <input type="text" placeholder="Title" name="title">
+                </div>
+                <div class="col-12">
+                    <textarea name="Note" cols="30" rows="13" placeholder="Take a Note..."></textarea>
+                </div>
+                <div class="col-12 mt-3">
+                    <button class="btn btn-success rounded-pill px-4">
+                        + Add Note
+                    </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/js/dashboard.js"></script>

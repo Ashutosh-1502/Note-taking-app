@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate2')%>
+    <div class="container pt-5 mt-3">
+        <div class="row d-flex justify-content-between">
+            <div class="col-3">
+                <h2>Hey, <%= currentUser.firstName %></h2>
+            </div>
+            <div class="col-2">
+                <form action="/newNote" method="GET">
+                    <button class="btn btn-success rounded-pill px-4 text-white">+ New Notes</button>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5 note-remainder d-flex hidden">
+            <div class="col-1">
+                <i class="bi bi-journal-bookmark display-1 text-danger"></i>
+            </div>
+            <div class="col-5">
+                <h2>Okay...</h2>
+                <h4>Let's start with your first note!</h4>
+                <a href="/newNote" class="h5 text-primary">Create one!</a>
+            </div>
+        </div>
+        <div class="row mt-4 note-data d-flex flex-wrap row-gap-3 justify-content-start">
+            <% for(let note of notes) {%>
+                <div class="col-4">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <a href="/dashboard/item/<%= note._id %>" class="text-decoration-none text-dark">
+                                <h5 class="card-title text-primary">
+                                    <%= note.title %>
+                                </h5>
+                                <hr>
+                                <p class="card-text">
+                                    <%= note.Note %>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <script src="/js/dashboard1.js"></script>

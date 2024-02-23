@@ -1,0 +1,59 @@
+
+.links a{
+    color: black;
+    text-decoration: none !important;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.color-style{
+    background-color: rgb(31, 31, 115) !important;
+}
+  
+.heading{
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.heading h1{
+    color: rgb(89, 89, 189);
+}
+
+.search{
+    width: 40%;
+}
+
+.hidden{
+    display: none !important;
+}
+.search form{
+    display: flex;
+}
+
+.note-data .col-4 .card{
+    height: 230px !important;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0px 10px;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+.note-input input , .note-input textarea{
+    width: 100%;
+    border: none;
+    padding: 10px 20px;
+    outline: none;
+}
+
+.note-input input::placeholder{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.note-input input{
+    font-size: 20px;
+}

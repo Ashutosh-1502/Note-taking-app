@@ -1,0 +1,24 @@
+<div class="container-fluid mt-2">
+  <div class="row d-flex justify-content-between">
+    <div class="col-2">
+      <h3 class="text-primary">Note</h3>
+    </div>
+    <div class="col-4 d-flex justify-content-between links">
+      <a href="">Home</a>
+      <a href="">Features</a>
+      <a href="">FAQs</a>
+      <a href="">About</a>
+    </div>
+    <div class="col-2 d-flex justify-content-end">
+      <div>
+        <% if(!currentUser) {%>
+          <a href="/auth/register" class="btn btn-outline-dark rounded-pill px-4 mx-2 pb-2">Sign up</a>
+          <a href="/auth/login" class="btn rounded-pill px-4 text-white pb-2 color-style">Sign in</a>
+          <% }else{ %>
+            <a href="/auth/logout" class="btn btn-danger rounded-pill px-4 text-white pb-2">Logout</a>
+            <% } %>
+      </div>
+
+    </div>
+  </div>
+</div>
