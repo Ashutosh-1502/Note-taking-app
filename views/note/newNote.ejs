@@ -1,32 +1,48 @@
-<% layout('layouts/boilerplate2')%>
+<% layout('layouts/boilerplate2') %>
 
-    <div class="container mt-5 pt-5">
-        <div class="row note-input">
-            <div class="col-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Add Note</li>
-                    </ol>
-                </nav>
-            </div>
-            <div class="col-12">
-                <h2>Add Notes</h2>
-            </div>
-            <form action="/newNote" method="POST" class="form-data">
-                <div class="col-12">
-                    <input type="text" placeholder="Title" name="title">
+<div class="container mt-5 pt-4">
+    <div class="row note-input mb-5">
+        <!-- Breadcrumb -->
+        <div class="col-12 mb-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="/dashboard" class="text-decoration-none text-primary">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Note</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Header -->
+        <div class="col-12 mb-4">
+            <h2 class="fw-bold text-secondary">Add a New Note</h2>
+        </div>
+
+        <!-- Form Section -->
+        <div class="col-md-8 mx-auto">
+            <form action="/newNote" method="POST" class="p-4 shadow-sm rounded bg-white">
+                <!-- Title Input -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Note Title</label>
+                    <input type="text" class="form-control form-control-lg" id="title" name="title" placeholder="Enter title..." required>
                 </div>
-                <div class="col-12">
-                    <textarea name="Note" cols="30" rows="13" placeholder="Take a Note..."></textarea>
+
+                <!-- Note Textarea -->
+                <div class="mb-4">
+                    <label for="note" class="form-label">Note Content</label>
+                    <textarea name="Note" id="note" cols="30" rows="10" class="form-control" placeholder="Write your note..." required></textarea>
                 </div>
-                <div class="col-12 mt-3">
-                    <button class="btn btn-success rounded-pill px-4">
+
+                <!-- Action Button -->
+                <div class="text-center">
+                    <button class="btn btn-success rounded-pill px-5 py-2 shadow">
                         + Add Note
                     </button>
-                    </div>
                 </div>
             </form>
         </div>
     </div>
-    <script src="/js/dashboard.js"></script>
+</div>
+
+<script src="/js/dashboard.js"></script>

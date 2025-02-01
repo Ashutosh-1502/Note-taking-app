@@ -1,59 +1,39 @@
 
-.links a{
-    color: black;
-    text-decoration: none !important;
-    font-size: 20px;
+/*new css*/
+body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-.color-style{
-    background-color: rgb(31, 31, 115) !important;
+.btn-black {
+    background-color: black;
+    color: white;
 }
-  
-.heading{
-    margin-top: 150px;
+.illustration-box {
+    background-color: #f56262;
+    padding: 40px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-.heading h1{
-    color: rgb(89, 89, 189);
-}
-
-.search{
-    width: 40%;
-}
-
-.hidden{
-    display: none !important;
-}
-.search form{
-    display: flex;
-}
-
-.note-data .col-4 .card{
-    height: 230px !important;
-    background-color: white;
-    border-radius: 5px;
-    padding: 0px 10px;
-    border: 2px solid black;
-    overflow: hidden;
-}
-
-.note-input input , .note-input textarea{
+.illustration-icon {
     width: 100%;
-    border: none;
-    padding: 10px 20px;
-    outline: none;
+    height: auto;
 }
-
-.note-input input::placeholder{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 25px;
+.write-section {
+    background-color: #ffedcc;
+    padding: 60px 0;
 }
-
-.note-input input{
-    font-size: 20px;
+.hero-section {
+    padding: 60px 0;
+}
+.features-section {
+    padding: 60px 0;
+}
+.testimonial-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
 }

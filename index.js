@@ -14,8 +14,9 @@ const ExpressError = require('./utilities/expressError');
 const passport = require('passport');
 const localStrategy = require('passport-local');
 const flash = require('connect-flash');
+const MongoStore = require('connect-mongo');
 
-dotenv.config({path : './config.env'});
+dotenv.config({ path: './config.env' });
 const DB = process.env.DATABASE;
 const PORT = process.env.PORT;
 
@@ -35,7 +36,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+
+const store = MongoStore.create({
+    mongoUrl: DB,
+    crypto: {
+        secret: 'stickyNote'
+    },
+    touchAfter : 24*60*60
+})
+
+store.on('error',function(e){
+    console.log('Session Store error',e);
+})
+
 const sessionConfig = {
+    store,
+    name: 'noteSession',
     secret: 'stickyNote',
     resave: false,
     saveUninitialized: true,
@@ -73,7 +89,7 @@ app.all('*', (req, res, next) => {
 app.use((err, req, res, next) => {
     const { statusCode = 404, message = 'Something Went Wrong' } = err;
     res.status(statusCode).render('error/errorPage', { err });
-    console.log(err);
+    // console.log(err);
 })
 
 app.listen(PORT, () => {

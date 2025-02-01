@@ -1,43 +1,80 @@
-<% layout('layouts/boilerplate2')%>
-    <div class="container pt-5 mt-3">
-        <div class="row d-flex justify-content-between">
-            <div class="col-3">
-                <h2>Hey, <%= currentUser.firstName %></h2>
+<% layout('layouts/boilerplate2') %>
+<div class="container-fluid pt-3">
+    <div class="row border h-screen">
+        <!-- Sidebar Navigation -->
+        <div class="col-md-3 col-lg-2 sidebar py-3 border-right border-primary">
+            <h2 class="ps-3 mb-4">NotePlus</h2>
+            <div class="d-flex flex-column align-items-center text-center mb-4">
+                <img src="/images/logo-user.jpg" alt="User Avatar" class="rounded-circle mb-2" width="80">
+                <h5><%= currentUser.firstName%> <%=currentUser.lastName%></h5>
             </div>
-            <div class="col-2">
+            <ul class="nav flex-column ps-3">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/dashboard"><i class="bi bi-journal-text"></i> Your Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/newNote"><i class="bi bi-book"></i> Notebooks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><i class="bi bi-hash"></i> Other Page</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 col-lg-10 ps-md-0 pt-3">
+            <!-- Header Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">Your Notes</h2>
                 <form action="/newNote" method="GET">
                     <button class="btn btn-success rounded-pill px-4 text-white">+ New Notes</button>
                 </form>
             </div>
-        </div>
-        <div class="row mt-5 note-remainder d-flex hidden">
-            <div class="col-1">
-                <i class="bi bi-journal-bookmark display-1 text-danger"></i>
-            </div>
-            <div class="col-5">
-                <h2>Okay...</h2>
-                <h4>Let's start with your first note!</h4>
-                <a href="/newNote" class="h5 text-primary">Create one!</a>
-            </div>
-        </div>
-        <div class="row mt-4 note-data d-flex flex-wrap row-gap-3 justify-content-start">
-            <% for(let note of notes) {%>
-                <div class="col-4">
-                    <div class="card" style="width: 100%;">
-                        <div class="card-body">
-                            <a href="/dashboard/item/<%= note._id %>" class="text-decoration-none text-dark">
-                                <h5 class="card-title text-primary">
-                                    <%= note.title %>
-                                </h5>
+
+            <!-- Tab Navigation for Filtering Notes -->
+            <ul class="nav nav-pills mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/dashboard">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pinned Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Favourite Notes</a>
+                </li>
+            </ul>
+
+            <!-- Notes Grid -->
+            <div class="row note-data d-flex flex-wrap row-gap-3">
+                <%if(notes.length === 0) {%>
+                    <p>No New Notes Available...</p>
+                <%} else {%>
+                <% for(let noteData of notes) { %>
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="/dashboard/item/<%= noteData._id %>" class="text-decoration-none text-dark">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-journal-text fs-4 text-primary"></i>
+                                        <h5 class="ms-2 card-title text-primary"><%= noteData.title %></h5>
+                                    </div>
+                                    <p class="card-text">
+                                        <%= noteData.Note %>
+                                    </p>
+                                </a>
                                 <hr>
-                                <p class="card-text">
-                                    <%= note.Note %>
-                                </p>
-                            </a>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted"><i class="bi bi-share"></i> Share</small>
+                                    <small class="text-muted"><i class="bi bi-calendar"></i> 12 Jan 2021</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 <% } %>
+                <%}%>
+            </div>
         </div>
     </div>
-    <script src="/js/dashboard1.js"></script>
+</div>
+
+<script src="/js/dashboard1.js"></script>

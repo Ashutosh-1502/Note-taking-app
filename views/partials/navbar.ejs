@@ -1,24 +1,14 @@
-<div class="container-fluid mt-2">
-  <div class="row d-flex justify-content-between">
-    <div class="col-2">
-      <h3 class="text-primary">Note</h3>
+<nav class="navbar navbar-light d-flex flex-row px-3 w-100 shadow-md">
+    <a class="navbar-brand" href="#">
+        <img src="/images/notes1.jpeg" alt="Journey Logo" width="30" height="30">
+        Journey
+    </a>
+    <div>
+        <%if(!currentUser){ %>
+        <a href="/auth/login"> <button class="btn btn-outline-dark me-2">Log In</button></a>
+        <a href="/auth/register"> <button class="btn btn-dark">Sign Up</button></a>
+        <%} else {%>
+                <a href="/auth/logout"> <button class="btn btn-dark">Log out</button></a>
+        <%}%>
     </div>
-    <div class="col-4 d-flex justify-content-between links">
-      <a href="">Home</a>
-      <a href="">Features</a>
-      <a href="">FAQs</a>
-      <a href="">About</a>
-    </div>
-    <div class="col-2 d-flex justify-content-end">
-      <div>
-        <% if(!currentUser) {%>
-          <a href="/auth/register" class="btn btn-outline-dark rounded-pill px-4 mx-2 pb-2">Sign up</a>
-          <a href="/auth/login" class="btn rounded-pill px-4 text-white pb-2 color-style">Sign in</a>
-          <% }else{ %>
-            <a href="/auth/logout" class="btn btn-danger rounded-pill px-4 text-white pb-2">Logout</a>
-            <% } %>
-      </div>
-
-    </div>
-  </div>
-</div>
+</nav>
